@@ -1,0 +1,8 @@
+options:
+    mfont: &b
+    sfont: &d
+    tfont: &f
+
+command /furstore [<player>]:
+    trigger:
+        send "{@tfont} U CLICKED ME!!" to arg-1
