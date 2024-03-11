@@ -27,7 +27,7 @@ Info
 ============================
 These plugins only work in a world called "FurPlex" since its our basis to the server!
 Please make a world using MV to recreate or import our world!
-Commands are stable for plugins like Essentials, Luckyperms and other special server plugins!
+Commands are stable for plugins like Essentials, Luckperms and other special server plugins!
 - Recommendation is to NOT use MvInventory or any other addons!
 - U REQUIRE a lift plugin not developed by us, to make most stuff completely available! Most is Vanilla! (For the world download)
 
