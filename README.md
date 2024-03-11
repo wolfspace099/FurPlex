@@ -1,4 +1,3 @@
-============================
 Installation Guides
 ============================
 
@@ -17,13 +16,13 @@ World
 
 Resource Pack
 -------------
-============================
+
 Legal Stuff
 ============================
 Please note that this plugin is only stable for OUR FurPlex, we are not responsable for any damage!
 
 Copywrited 2024 all rights reserved!
-============================
+
 Info
 ============================
 These plugins only work in a world called "FurPlex" since its our basis to the server!
