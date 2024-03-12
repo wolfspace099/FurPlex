@@ -29,10 +29,10 @@ every 1 seconds:
             wait 1 seconds
         while name of loop-player's current inventory is "{@mfont}FurToken ATM":
             set slot 15 of {ainv} to 20 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
-            set slot 11 of {ainv} to 2 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 11 of {ainv} to 2 of diamond named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!"
             wait 1 seconds
             set slot 11 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
-            set slot 15 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 15 of {ainv} to paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!"
             wait 1 seconds
 on inventory click:
     if name of event-inventory is "{@sfont}Fur{@mfont}Store":
