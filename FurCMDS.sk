@@ -1,7 +1,20 @@
 command /CRl:
+    permission: op
     trigger:
         broadcast "&c&lCONTROL ROOM: Control room is on lockdown, everything will be on lockdown to protect control room staff." to the world "FURPLEX"
 
 command /furstore:
     trigger:
         add "FURPLEX" to the scoreboard tags of player
+
+command /staffapps [<text>]:
+    permission: op
+    trigger:
+        if arg-1 is "open":
+            set {staffr} to "&aOpen!"
+        else if arg-1 is "close":
+            set {staffr} to "&cClosed"
+        else:
+            send "&cThat command does not exist! Please check the syntax"
+on tab complete of "/staffapps":
+    set tab completions for position 1 to "open" and "close"
