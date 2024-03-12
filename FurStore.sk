@@ -28,8 +28,8 @@ every 1 seconds:
             set slot 15 of {_inv} to netherite block named "{@mfont}Ranks" with lore "&fWe got custom ranks in the {@sfont}Fur{@mfont}Plex&f for visitors and others! View them here!"
             wait 1 seconds
         while name of loop-player's current inventory is "{@mfont}FurToken ATM":
-            set slot 15 of {ainv} to 20 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
-            set slot 11 of {ainv} to 2 of diamond named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!"
+            set slot 15 of {ainv} to 20 of diamond named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!"
+            set slot 11 of {ainv} to 2 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
             wait 1 seconds
             set slot 11 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
             set slot 15 of {ainv} to paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!"
