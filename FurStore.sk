@@ -42,10 +42,10 @@ on inventory click:
         if event-item is iron block, diamond block, gold block or netherite block:
             close event-player's inventory
             set {_inv} to chest inventory with 3 rows named "{@mfont}Ranks"
-            set slot 10 of {_inv} to iron block named "&fVisitor" with lore "&fSomeone who comes here and visits!" and "" and "&f- Access to Store & Lounge" and "&f- Access to Basic Fur&Stuff storage" and "&f- Atrium Access" and "&f- 1 Free Plush" and "" and "{@mfont}Free"
-            set slot 12 of {_inv} to gold block named "&6VIP" with lore "&fSpecial acces to more entertaining for a more entertaining experience!" and "" and "&f- Acces to VIP Area" and "&f- Premium Fur&Stuff Storage" and "&f-Free Drinks & Food" and "- 5 Free Assorties for your home" and "&6- VIP Pass" and "" and "&f150 {@sfont}Fur{@mfont}Tokens"
-            set slot 14 of {_inv} to diamond block
-            set slot 16 of {_inv} to netherite block
+            set slot 10 of {_inv} to iron block named "&fVisitor" with lore "&fSomeone who comes here and visits!" and "" and "&f- Access to Store & Lounge" and "&f- Access to Basic Fur&Stuff storage" and "&f- Atrium Access" and "&f- 1 Free Plush" and "" and "{@mfont}&lFree"
+            set slot 12 of {_inv} to gold block named "&6VIP" with lore "&fSpecial acces to more entertaining for a more entertaining experience!" and "" and "&f- Access to VIP Area" and "&f- Premium Fur&Stuff Storage" and "&f-Free Drinks & Food" and "&f- 5 Free Assorties for your home" and "&6- VIP Pass" and "" and "&6&l150 FurTokens"
+            set slot 14 of {_inv} to diamond block named "{@mfont}Famous" with lore "&fAccess for famous people who are well known!" and "" and "&f- Access to ALL of the FurPlex" and "&f- Unlimited Fur&Stff Storage" and "&fFree FurPack" and "&f- Free Founder Tour" and "" and "{@mfont}&lInvite Only"
+            set slot 16 of {_inv} to netherite block named "&fFounder" with lore "&fFounder of the Mega FurPlex!" and "&fGot all permissions!" and "" and "&f&lFOUNDERS ONLY"
             set slot 22 of {_inv} to barrier named "&cClose"
             open {_inv} to player
         if event-item is diamond or paper:
@@ -66,7 +66,7 @@ on inventory click:
             else:
                 close event-player's inventory
                 send "&cU don't have enough wealth to do this!"
-        else if event-item is diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!" or paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!":
+        else if event-item is diamond named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!" or paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!":
             if event-player has 20 diamond:
                 remove 20 of diamond from event-player
                 give 10 of {furtoken} to event-player
