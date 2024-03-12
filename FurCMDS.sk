@@ -16,5 +16,5 @@ command /staffapps [<text>]:
             set {staffr} to "&cClosed"
         else:
             send "&cThat command does not exist! Please check the syntax"
-on tab complete of "/staffapps":
+on tab completion of "/staffapps":
     set tab completions for position 1 to "open" and "close"
