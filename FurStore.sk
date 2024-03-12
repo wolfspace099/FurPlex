@@ -65,14 +65,14 @@ on inventory click:
                 give 1 of {furtoken} to event-player
             else:
                 close event-player's inventory
-                send "&cYou don't have enough wealth to do this!"
+                send "&cU don't have enough wealth to do this!"
         else if event-item is diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!" or paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!":
             if event-player has 20 diamond:
                 remove 20 of diamond from event-player
                 give 10 of {furtoken} to event-player
             else:
                 close event-player's inventory
-                send "&cYou don't have enough wealth to do this!"
+                send "&cU don't have enough wealth to do this!"
     else if name of event-inventory is "{@mfont}Ranks":
         cancel event
         if event-item is barrier:
