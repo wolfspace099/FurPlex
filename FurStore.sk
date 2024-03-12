@@ -26,6 +26,13 @@ every 1 seconds:
             wait 1 seconds
             set slot 15 of {_inv} to netherite block named "{@mfont}Ranks" with lore "&fWe got custom ranks in the {@sfont}Fur{@mfont}Plex&f for visitors and others! View them here!"
             wait 1 seconds
+        while name of loop-player's current inventory is "{@mfont}FurToken ATM":
+            set slot 16 of {ainv} to 20 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 12 of {ainv} to 2 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            wait 1 seconds
+            set slot 12 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 16 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            wait 1 seconds
 on inventory click:
     if name of event-inventory is "{@sfont}Fur{@mfont}Store":
         cancel event
@@ -34,10 +41,22 @@ on inventory click:
         if event-item is iron block, diamond block, gold block or netherite block:
             close event-player's inventory
             set {_inv} to chest inventory with 3 rows named "{@mfont}Ranks"
-            set slot 10 of {_inv} to iron block named "&fVisitor" with lore "Someone who comes here and visits!" and "" and "&f- Access to Store & Lounge" and "&f- Access to Basic Fur&Stuff storage" and "&f- Atrium Access" and "&f- 1 Free Plush" and "" and "&aFree"
-            set slot 12 of {_inv} to gold block
+            set slot 10 of {_inv} to iron block named "&fVisitor" with lore "&fSomeone who comes here and visits!" and "" and "&f- Access to Store & Lounge" and "&f- Access to Basic Fur&Stuff storage" and "&f- Atrium Access" and "&f- 1 Free Plush" and "" and "{@mfont}Free"
+            set slot 12 of {_inv} to gold block named "&6VIP" with lore "&fSpecial acces to more entertaining for a more entertaining experience!" and "" and "&f- Acces to VIP Area" and "&f- Premium Fur&Stuff Storage" and "&f-Free Drinks & Food" and "- 5 Free Assorties for your home" and "&6- VIP Pass" and "" and "&f150 {@sfont}Fur{@mfont}Tokens"
             set slot 14 of {_inv} to diamond block
             set slot 16 of {_inv} to netherite block
             set slot 22 of {_inv} to barrier named "&cClose"
             open {_inv} to player
-        
+        if event-item is diamond or paper:
+            close event-player's inventory
+            set {ainv} to chest inventory with 3 rows named "{@mfont}FurToken ATM"
+            set slot 12 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 16 of {ainv} to paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!"
+            set slot 22 of {ainv} to barrier named "&cClose"
+            open {ainv} to player
+    else if name of event-inventory is "{@mfont}FurToken ATM":
+        if event-item is barrier:
+            close event-player's inventory
+    else if name of event-inventory is "{@mfont}Ranks":
+        if event-item is barrier:
+            close event-player's inventory
