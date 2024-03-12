@@ -28,8 +28,10 @@ Copyright 2024 all rights reserved!
 
 Info
 ============================
--These plugins only work in a world called "FURPLEX", so please use MV to import our world.
+- These plugins only work in a world called "FURPLEX", so please use MV to import our world.
+
 - You need the plugins listed in the plugins.txt file (For the world download).
--You also need to get the resourcepack.
+
+- You also need to get the resourcepack.
 
 
