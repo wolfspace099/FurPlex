@@ -56,6 +56,7 @@ on inventory click:
             set slot 22 of {ainv} to barrier named "&cClose"
             open {ainv} to player
     else if name of event-inventory is "{@mfont}FurToken ATM":
+        cancel event
         if event-item is barrier:
             close event-player's inventory
         if event-item is diamond or paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!":
@@ -64,14 +65,15 @@ on inventory click:
                 give 1 of {furtoken} to event-player
             else:
                 close event-player's inventory
-                send "&cU do not have enough wealth to do this!"
+                send "&cU dont have enough wealth to do this!"
         else if event-item is diamond or paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!":
             if event-player has 20 diamond:
                 remove 20 of diamond from event-player
                 give 10 of {furtoken} to event-player
             else:
                 close event-player's inventory
-                send "&cYou don't have enough wealth to do this!"
+                send "&cU do not have enough wealth to do this!"
     else if name of event-inventory is "{@mfont}Ranks":
+        cancel event
         if event-item is barrier:
             close event-player's inventory
