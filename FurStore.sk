@@ -3,7 +3,8 @@ options:
     mfont: <##33A8FF>
     sfont: &d
     tfont: &f
-
+on load:
+    set {furtoken} to paper named "&dFur{@mfont}Token" with lore "&fMain credit of the &dMega Fur{@mfont}Plex&f! U can use this to buy and sell!"
 every 1 seconds:
     loop all players:
         add 1 to {loops.%loop-player%}
@@ -27,11 +28,11 @@ every 1 seconds:
             set slot 15 of {_inv} to netherite block named "{@mfont}Ranks" with lore "&fWe got custom ranks in the {@sfont}Fur{@mfont}Plex&f for visitors and others! View them here!"
             wait 1 seconds
         while name of loop-player's current inventory is "{@mfont}FurToken ATM":
-            set slot 16 of {ainv} to 20 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
-            set slot 12 of {ainv} to 2 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 15 of {ainv} to 20 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 11 of {ainv} to 2 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
             wait 1 seconds
-            set slot 12 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
-            set slot 16 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 11 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 15 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
             wait 1 seconds
 on inventory click:
     if name of event-inventory is "{@sfont}Fur{@mfont}Store":
@@ -50,13 +51,27 @@ on inventory click:
         if event-item is diamond or paper:
             close event-player's inventory
             set {ainv} to chest inventory with 3 rows named "{@mfont}FurToken ATM"
-            set slot 12 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
-            set slot 16 of {ainv} to paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!"
+            set slot 11 of {ainv} to paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!"
+            set slot 15 of {ainv} to paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!"
             set slot 22 of {ainv} to barrier named "&cClose"
             open {ainv} to player
     else if name of event-inventory is "{@mfont}FurToken ATM":
         if event-item is barrier:
             close event-player's inventory
+        if event-item is diamond or paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!":
+            if event-player has 2 diamond:
+                remove 2 of diamond from event-player
+                give 1 of {furtoken} to event-player
+            else:
+                close event-player's inventory
+                send "&cU do not have enough wealth to do this!"
+        else if event-item is diamond or paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!":
+            if event-player has 20 diamond:
+                remove 20 of diamond from event-player
+                give 10 of {furtoken} to event-player
+            else:
+                close event-player's inventory
+                send "&cU do not have enough wealth to do this!"
     else if name of event-inventory is "{@mfont}Ranks":
         if event-item is barrier:
             close event-player's inventory
