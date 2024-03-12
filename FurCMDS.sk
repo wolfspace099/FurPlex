@@ -1,0 +1,7 @@
+command /CRl:
+    trigger:
+        broadcast "&c&lCONTROL ROOM: Control room is on lockdown, everything will be on lockdown to protect control room staff." to the world "FURPLEX"
+
+command /furstore:
+    trigger:
+        add "FURPLEX" to the scoreboard tags of player
