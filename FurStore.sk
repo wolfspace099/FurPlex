@@ -71,7 +71,7 @@ on inventory click:
                 give 10 of {furtoken} to event-player
             else:
                 close event-player's inventory
-                send "&cU do not have enough wealth to do this!"
+                send "&cYou don't have enough wealth to do this!"
     else if name of event-inventory is "{@mfont}Ranks":
         if event-item is barrier:
             close event-player's inventory
