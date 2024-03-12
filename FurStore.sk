@@ -41,3 +41,6 @@ on inventory click:
             set slot 22 of {_inv} to barrier named "&cClose"
             open {_inv} to player
         
+command /CRl:
+    trigger:
+        broadcast "&c&lCONTROL ROOM: Control room is on lockdown, everything will be on lockdown to protect control room staff." to the world "FURPLEX"
