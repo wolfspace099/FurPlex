@@ -16,5 +16,16 @@ command /staffapps [<text>]:
             set {staffr} to "&cClosed"
         else:
             send "&cThat command does not exist! Please check the syntax"
+command /pass [<text>]:
+    permission: op
+    trigger:
+        if arg-1 is "VIP":
+            give 1 of {vippass} to player
+        else if arg-1 is "Famous":
+            give 1 of {famouspass} to player
+        else:
+            send "&cThat command does not exist! Please check the syntax"
 on tab completion of "/staffapps":
     set tab completions for position 1 to "open" and "close"
+on tab completion of "/pass":
+    set tab completions for position 1 to "Famous" and "VIP"
