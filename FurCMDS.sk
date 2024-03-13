@@ -25,7 +25,9 @@ command /pass [<text>]:
             give 1 of {famouspass} to player
         else:
             send "&cThat command does not exist! Please check the syntax"
+
 on tab completion of "/staffapps":
     set tab completions for position 1 to "open" and "close"
+
 on tab completion of "/pass":
     set tab completions for position 1 to "Famous" and "VIP"
