@@ -75,7 +75,7 @@ on inventory click:
                 give 1 of {furtoken} to event-player
             else:
                 close event-player's inventory
-                send "&cU don't have enough wealth to do this!"
+                send "&cYou don't have enough wealth to do this!"
         else if event-item is 20 of diamond named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!" or 10 of paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!":
             if event-player has 20 diamond:
                 add 20 to {diagained}
@@ -83,7 +83,7 @@ on inventory click:
                 give 10 of {furtoken} to event-player
             else:
                 close event-player's inventory
-                send "&cU don't have enough wealth to do this!"
+                send "&cYou don't have enough wealth to do this!"
     else if name of event-inventory is "{@mfont}Ranks":
         cancel event
         if event-item is barrier:
@@ -96,7 +96,7 @@ on inventory click:
                 set slot 15 of {arsinv} to red stained glass block named "&cNo"
                 open {arsinv} to event-player
             else:
-                send "&cU don't have enough FurTokens!"
+                send "&cYou don't have enough FurTokens!"
     else if name of event-inventory is "&fAre you sure?":
         cancel event
         if event-item is red stained glass block:
@@ -105,4 +105,4 @@ on inventory click:
             remove 150 of {furtoken} from event-player
             give 1 of {vippass} to event-player
             close event-player's inventory
-            send "&6U now got VIP!"
+            send "&6You now have VIP!"
