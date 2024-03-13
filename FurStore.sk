@@ -91,7 +91,7 @@ on inventory click:
         if event-item is gold block:
             if player has 150 of {furtoken}:
                 close event-player's inventory
-                set {arsinv} to chest inventory with 3 rows named "&fAre you sure?"
+                set {arsinv} to chest inventory with 3 rows named "&7Are you sure?"
                 set slot 11 of {arsinv} to green stained glass block named "&aYes"
                 set slot 15 of {arsinv} to red stained glass block named "&cNo"
                 open {arsinv} to event-player
