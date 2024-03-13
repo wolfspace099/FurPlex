@@ -20,7 +20,8 @@ every 10 ticks:
             remove "FURPLEX" from the scoreboard tags of loop-player
         else if loop-player has scoreboard tag "DEPOTDIA":
             if {diagained} is 0:
-                send "{@mfont}There are no Diamonds to deposit currently!" to loop-player
+                send "{@mfont}There are no Diamonds to deposit currently!"
+                remove "DEPOTDIA" from the scoreboard tags of loop-player
             else:
                 give {diagained} of diamond to loop-player
                 set {diagained} to 0
@@ -68,22 +69,22 @@ on inventory click:
         cancel event
         if event-item is barrier:
             close event-player's inventory
-        if event-item is 2 of diamond named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!" or paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!":
+        if event-item is 1 of paper named "&f1 &dFur{@mfont}Token" with lore "&fClick to trade!":
             if event-player has 2 diamond:
                 add 2 to {diagained}
                 remove 2 of diamond from event-player
                 give 1 of {furtoken} to event-player
             else:
                 close event-player's inventory
-                send "&cYou don't have enough wealth to do this!"
-        else if event-item is 20 of diamond named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!" or 10 of paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!":
+                send "&cU don't have enough wealth to do this!"
+        else if event-item is 10 of paper named "&f10 &dFur{@mfont}Tokens" with lore "&fClick to trade!":
             if event-player has 20 diamond:
                 add 20 to {diagained}
                 remove 20 of diamond from event-player
                 give 10 of {furtoken} to event-player
             else:
                 close event-player's inventory
-                send "&cYou don't have enough wealth to do this!"
+                send "&cU don't have enough wealth to do this!"
     else if name of event-inventory is "{@mfont}Ranks":
         cancel event
         if event-item is barrier:
@@ -91,12 +92,12 @@ on inventory click:
         if event-item is gold block:
             if player has 150 of {furtoken}:
                 close event-player's inventory
-                set {arsinv} to chest inventory with 3 rows named "&7Are you sure?"
+                set {arsinv} to chest inventory with 3 rows named "&fAre you sure?"
                 set slot 11 of {arsinv} to green stained glass block named "&aYes"
                 set slot 15 of {arsinv} to red stained glass block named "&cNo"
                 open {arsinv} to event-player
             else:
-                send "&cYou don't have enough FurTokens!"
+                send "&cU don't have enough FurTokens!"
     else if name of event-inventory is "&fAre you sure?":
         cancel event
         if event-item is red stained glass block:
@@ -105,4 +106,4 @@ on inventory click:
             remove 150 of {furtoken} from event-player
             give 1 of {vippass} to event-player
             close event-player's inventory
-            send "&6You now have VIP!"
+            send "&6U now got VIP!"
