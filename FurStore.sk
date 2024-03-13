@@ -20,7 +20,7 @@ every 10 ticks:
             remove "FURPLEX" from the scoreboard tags of loop-player
         else if loop-player has scoreboard tag "DEPOTDIA":
             if {diagained} is 0:
-                send "{@mfont}There are no Diamonds to deposit currently!"
+                send "{@mfont}There are no Diamonds to deposit currently!" to loop-player
             else:
                 give {diagained} of diamond to loop-player
                 set {diagained} to 0
