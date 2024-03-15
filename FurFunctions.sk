@@ -32,14 +32,15 @@ every 1 seconds:
             open {Elevinv} to loop-player
             remove "elevator" from the scoreboard tags of loop-player
         else if loop-player has scoreboard tag "FURMUSIC":
-            set {MUSICinv} to chest inventory with 3 rows named "{@sfont}Fur{@mfont}Menu"
+            set {MUSICinv} to chest inventory with 3 rows named "{@sfont}Fur{@mfont}Music"
             set slot 11 of {MUSICinv} to pink concrete named "&dJoin us for a bite - JT Music" with lore "&fSister Location Remix, where she will consume u..."
             set slot 12 of {MUSICinv} to light blue concrete named "{@sfont}Fur{@mfont}Plex Main Theme" with lore "&fThe Main rocking theme of the {@sfont}Fur{@mfont}Plex"
             set slot 13 of {MUSICinv} to red concrete named "&cFive Night's at FurPlex" with lore "&fFive Night's at our home, our place and our rules..."
             set slot 14 of {MUSICinv} to purple concrete named "&5It's been so long" with lore "&fThe slaughter house between the Arcades of the Plex..."
             set slot 15 of {MUSICinv} to lime concrete named "&aWonderwall" with lore "&fToday is gonna be the day... bitch"
+            set slot 21 of {MUSICinv} to arrow named "&aPrevious Page"
             set slot 22 of {MUSICinv} to barrier named "&cClose"
-            set slot 22 of {MUSICinv} to note block named "&cStop Sounds"
+            set slot 23 of {MUSICinv} to note block named "&cStop Sounds"
             open {MUSICinv} to loop-player
             remove "FURMUSIC" from the scoreboard tags of loop-player
 on inventory click:
@@ -69,9 +70,8 @@ on inventory click:
             close event-player's inventory
             add "DJ7" to the scoreboard tags of player
         if event-item is arrow:
-            set {DJMinv} to chest inventory with 3 rows named "{@sfont}Fur{@mfont}DJ Menu"
-            open {DJMinv} to player
-            remove "FURDJ" from the scoreboard tags of player
+            close event-player's inventory
+            open {MUSICinv} to player
     else if name of event-inventory is "{@sfont}&lElevator":
         cancel event
         if event-item is barrier named "&cClose":
@@ -88,23 +88,34 @@ on inventory click:
             close event-player's inventory
             add "elevator3rdfromground" to the scoreboard tags of player
             add "elevator3rdfrom2nd" to the scoreboard tags of player
-    else if name of event-inventory is "{@mfont}Menu":
+    else if name of event-inventory is "{@sfont}Fur{@mfont}Music":
         cancel event
         if event-item is barrier named "&cClose":
             close event-player's inventory
-        if event-item is lime concrete:
+        else if event-item is lime concrete:
+            make player execute command "stopsound @a[distance=..15]"
             close event-player's inventory
-        if event-item is pink concrete:
+            make player execute command "playsound music_disc.11 master @a[distance=..15] ~ ~ ~ 0.7"
+        else if event-item is pink concrete:
+            make player execute command "stopsound @a[distance=..15]"
             close event-player's inventory
-        if event-item is light blue concrete:
+            make player execute command "playsound music_disc.blocks master @a[distance=..15] ~ ~ ~ 0.69"
+        else if event-item is light blue concrete:
+            make player execute command "stopsound @a[distance=..15]"
             close event-player's inventory
-            make console execute command "playsound music_disc.cat master @a[distance=..7] %location of event-player% 0.8"
-        if event-item is red concrete:
+            make player execute command "playsound music_disc.cat master @a[distance=..15] ~ ~ ~ 0.8"
+        else if event-item is red concrete:
+            make player execute command "stopsound @a[distance=..15]"
             close event-player's inventory
-        if event-item is purple concrete:
+            make player execute command "playsound music_disc.strad master @a[distance=..15] ~ ~ ~ 1"
+        else if event-item is purple concrete:
+            make player execute command "stopsound @a[distance=..15]"
             close event-player's inventory
-            make console execute command "playsound music_disc.mall master @a[distance=..7] %location of event-player% 0.7"
-        if event-item is note block:
+            make player execute command "playsound music_disc.mall master @a[distance=..15] ~ ~ ~ 0.7"
+        else if event-item is note block:
             close event-player's inventory
-            make console execute command "stopsound @a"
+            make player execute command "stopsound @a[distance=..15]"
+        else if event-item is arrow:
+            close event-player's inventory
+            open {DJinv} to event-player
         
