@@ -1,0 +1,110 @@
+# ====---== FurPlex Functions File to make GUI's and interfaces! Recommended with the FurPlex World! ==---====
+# This file is based on Tags, which u can view using /furplex tags list
+
+options:
+    furprefix: &d[Fur<##33A8FF>Plex]&f
+    mfont: <##33A8FF>
+    sfont: &d
+    tfont: &f
+
+#DJ Options Menu
+every 1 seconds:
+    loop all players:
+        if loop-player has scoreboard tag "FURDJ":
+            set {DJinv} to chest inventory with 3 rows named "{@sfont}Fur{@mfont}DJ Menu"
+            set slot 10 of {DJinv} to twisting vines named "&3The Wave" with lore "&fMakes a wave patern that goes from Right to Left"
+            set slot 11 of {DJinv} to tnt named "&cThe Explosion" with lore "&fExplosive kind of movement, that makes it go &cBOOM"
+            set slot 12 of {DJinv} to iron sword named "&fNinja" with lore "&fNinja kind of weapon, with a light full twist"
+            set slot 13 of {DJinv} to ender pearl named "&3The Ripple" with lore "&fCircle animation of the &3Water &fwith circles"
+            set slot 14 of {DJinv} to hopper named "&fThe Dropper" with lore "&fFalling down and down, faster and faster until hiting something..."
+            set slot 15 of {DJinv} to fire charge named "&cTerminate" with lore "&fKill the target..."
+            set slot 16 of {DJinv} to redstone lamp named "&cOff" with lore "&fTurn the Lights off!"
+            set slot 22 of {DJinv} to barrier named "&cClose"
+            set slot 23 of {DJinv} to arrow named "&aNext Page"
+            open {DJinv} to loop-player
+            remove "FURDJ" from the scoreboard tags of loop-player
+        else if loop-player has scoreboard tag "elevator":
+            set {Elevinv} to chest inventory with 3 rows named "{@sfont}&lElevator"
+            set slot 11 of {Elevinv} to light blue concrete named "{@mfont}Entrance" with lore "&fWhere u enter the {@sfont}Mega Fur{@mfont}Plex&f!" and "" and "&fHere you have:" and "{@mfont}- Fur&Stuff" and "{@mfont}- Store Area" and "{@mfont}- Mega Lounge" and "{@mfont}- Exit" and "" and "{@mfont}&lGround Floor"
+            set slot 13 of {Elevinv} to pink concrete named "&dFur Plaza" with lore "&fFloor 1 of the Entrance Hall!" and "&fHere is located:" and "" and "{@sfont}- FurMusic Restaurant" and "&d- FurCandy Island" and "&d- Atrium Access" and "" and "&d&l1st Floor"
+            set slot 15 of {Elevinv} to gold block named "&6VIP & Prizecounter" with lore "&fPick up your price! Or go to &6VIP" with lore "&fThis area is where u can pickup" and "&fyour gained prices or items" and "&fHere you also have:" and "" and "&6- VIP Entrance" and "&6- Atrium Access" and "&6- Arcade Access" and "" and "&6&l2nd Floor"
+            set slot 22 of {Elevinv} to barrier named "&cClose"
+            open {Elevinv} to loop-player
+            remove "elevator" from the scoreboard tags of loop-player
+        else if loop-player has scoreboard tag "FURMUSIC":
+            set {MUSICinv} to chest inventory with 3 rows named "{@sfont}Fur{@mfont}Menu"
+            set slot 11 of {MUSICinv} to pink concrete named "&dJoin us for a bite - JT Music" with lore "&fSister Location Remix, where she will consume u..."
+            set slot 12 of {MUSICinv} to light blue concrete named "{@sfont}Fur{@mfont}Plex Main Theme" with lore "&fThe Main rocking theme of the {@sfont}Fur{@mfont}Plex"
+            set slot 13 of {MUSICinv} to red concrete named "&cFive Night's at FurPlex" with lore "&fFive Night's at our home, our place and our rules..."
+            set slot 14 of {MUSICinv} to purple concrete named "&5It's been so long" with lore "&fThe slaughter house between the Arcades of the Plex..."
+            set slot 15 of {MUSICinv} to lime concrete named "&aWonderwall" with lore "&fToday is gonna be the day... bitch"
+            set slot 22 of {MUSICinv} to barrier named "&cClose"
+            set slot 22 of {MUSICinv} to note block named "&cStop Sounds"
+            open {MUSICinv} to loop-player
+            remove "FURMUSIC" from the scoreboard tags of loop-player
+on inventory click:
+    if name of event-inventory is "{@sfont}Fur{@mfont}DJ Menu":
+        cancel event
+        if event-item is barrier named "&cClose":
+            close event-player's inventory
+        if event-item is twisting vines:
+            close event-player's inventory
+            add "DJ1" to the scoreboard tags of player
+        if event-item is tnt:
+            close event-player's inventory
+            add "DJ2" to the scoreboard tags of player
+        if event-item is iron sword:
+            close event-player's inventory
+            add "DJ3" to the scoreboard tags of player
+        if event-item is ender pearl:
+            close event-player's inventory
+            add "DJ4" to the scoreboard tags of player
+        if event-item is hopper:
+            close event-player's inventory
+            add "DJ5" to the scoreboard tags of player
+        if event-item is fire charge:
+            close event-player's inventory
+            add "DJ6" to the scoreboard tags of player
+        if event-item is redstone lamp:
+            close event-player's inventory
+            add "DJ7" to the scoreboard tags of player
+        if event-item is arrow:
+            set {DJMinv} to chest inventory with 3 rows named "{@sfont}Fur{@mfont}DJ Menu"
+            open {DJMinv} to player
+            remove "FURDJ" from the scoreboard tags of player
+    else if name of event-inventory is "{@sfont}&lElevator":
+        cancel event
+        if event-item is barrier named "&cClose":
+            close event-player's inventory
+        if event-item is light blue concrete:
+            close event-player's inventory
+            add "elevatorgroundfrom2ndfloor" to the scoreboard tags of player
+            add "elevator3rdfromgroundopposite" to the scoreboard tags of player
+        if event-item is pink concrete:
+            close event-player's inventory
+            add "elevatorsecondfloorfromfirst" to the scoreboard tags of player
+            add "elevator3rdfrom2ndopposite" to the scoreboard tags of player
+        if event-item is gold block:
+            close event-player's inventory
+            add "elevator3rdfromground" to the scoreboard tags of player
+            add "elevator3rdfrom2nd" to the scoreboard tags of player
+    else if name of event-inventory is "{@mfont}Menu":
+        cancel event
+        if event-item is barrier named "&cClose":
+            close event-player's inventory
+        if event-item is lime concrete:
+            close event-player's inventory
+        if event-item is pink concrete:
+            close event-player's inventory
+        if event-item is light blue concrete:
+            close event-player's inventory
+            make console execute command "playsound music_disc.cat master @a[distance=..7] %location of event-player% 0.8"
+        if event-item is red concrete:
+            close event-player's inventory
+        if event-item is purple concrete:
+            close event-player's inventory
+            make console execute command "playsound music_disc.mall master @a[distance=..7] %location of event-player% 0.7"
+        if event-item is note block:
+            close event-player's inventory
+            make console execute command "stopsound @a"
+        
