@@ -22,16 +22,30 @@ If you have any other resourcepack you want to keep on your server, you can dm @
 
 Legal Stuff
 ============================
-By downloading this plugin you agree that we are not responsible for any damage to your worlds, this only works for our "FURPLEX" world!
+By downloading this plugin you agree that we are not responsible for any damage to your worlds, this only works for our "MFPlex" world!
 
 Copyright 2024 all rights reserved!
 
 Info
 ============================
-- These plugins only work in a world called "FURPLEX", so please use MV to import our world.
+- These plugins only work in a world called "MFPlex", so please use MV to import our world.
 
 - You need the plugins listed in the plugins.txt file (For the world download).
 
 - You also need to get the resourcepack.
+
+What is it?
+============================
+Here is a quick and short version of what the files do!
+
+- FurFunctions - Adds multiple functions using GUIs to the world
+
+- FurStore - Adds a System where u can withdraw and deposit your Tokens for the FurPlex! Also adds Staff Application and Passes!
+
+- FurCMDs - Adds Commands to control all the plugins & add small things for command blocks
+
+
+
+
 
 
