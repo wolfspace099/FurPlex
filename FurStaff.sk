@@ -1,0 +1,5 @@
+every 1 seconds:
+  loop all players:
+    if loop-player has scoreboard tag "cmenu":
+      wait 5 ticks
+      remove scoreboard tag "cmenu" from player
