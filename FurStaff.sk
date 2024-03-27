@@ -7,4 +7,4 @@ every 1 seconds:
       set {_menu} to chest inventory named "&8Prizecounter Security Menu"
       set slot 11 of {_menu} to purple concrete named "&eSwitch South Security Door" with lore "&fOpen or Close the South security door of the office" and "&e&lCLICK TO SWTICH"
       open {_menu} to loop-player
-      remove scoreboard tag "cmenu" from loop-player
+      remove scoreboard tag "PSOmenu" from loop-player
