@@ -20,25 +20,25 @@ on inventory click:
       close player's inventory
     if event-item is redstone lamp:
       close player's inventory
-      if loop-player has scoreboard tag "PSOLE":
+      if player has scoreboard tag "PSOLE":
         add "PSOLD" to the scoreboard tags of player
       else:
         add "PSOLE" to the scoreboard tags of player
     if event-item is yellow concrete:
       close player's inventory
-      if loop-player has scoreboard tag "PSD1O":
+      if player has scoreboard tag "PSD1O":
         add "PSD1C" to the scoreboard tags of player
       else:
         add "PSD1O" to the scoreboard tags of player
     if event-item is white concrete:
       close player's inventory
-      if loop-player has scoreboard tag "PSD2O":
+      if player has scoreboard tag "PSD2O":
         add "PSD2C" to the scoreboard tags of player
       else:
         add "PSD2O" to the scoreboard tags of player
     if event-item is red concrete:
       close player's inventory
-      if loop-player has scoreboard tag "PSOL":
+      if player has scoreboard tag "PSOL":
         add "PSOL" to the scoreboard tags of player
         add "PSD1C" to the scoreboard tags of player
         add "PSD2C" to the scoreboard tags of player
