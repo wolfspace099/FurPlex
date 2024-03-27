@@ -12,3 +12,7 @@ every 1 seconds:
       set slot 23 of {_menu} to red concrete named "&c&lLockdown" with lore "&fOnly in case of real emergencies!" and "&fNote this will turn of power to ensure" and "&fSecurity door health!" and "" and "&c&lCLICK TO LOCKDOWN"
       open {_menu} to loop-player
       remove "PSOmenu" from the scoreboard tags from loop-player
+on inventory click:
+  if name of event-inventory is "&8Prizecounter Security Menu":
+    if event-item is barrier:
+      close player's inventory
