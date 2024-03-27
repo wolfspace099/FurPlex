@@ -22,15 +22,15 @@ If you have any other resourcepack you want to keep on your server, you can dm @
 
 Legal Stuff
 ============================
-By downloading this plugin you agree that we are not responsible for any damage to your worlds, this only works for our "MFPlex" world!
+By downloading our content you agree that we are not responsible for any damage to your worlds, this only works for our FurPlex world! Or any other damages!
 
-Copyright 2024 all rights reserved!
+Copyright 2023-2024 all rights reserved!
 
 Info
 ============================
-- These plugins only work in a world called "MFPlex", so please use MV to import our world.
+- These plugins only work in a world called "FurPlex", so please use MV to import our world.
 
-- You need the plugins listed in the plugins.txt file (For the world download).
+- You need the plugins listed in the list below under "What is it?" (for full download of all sources) & under Liberies (for the world download).
 
 - You also need to get the resourcepack.
 
