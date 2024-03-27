@@ -2,9 +2,9 @@ every 1 seconds:
   loop all players:
     if loop-player has scoreboard tag "cmenu":
       wait 5 ticks
-      remove scoreboard tag "cmenu" from loop-player
+      remove "PSOmenu" from the scoreboard tags of player from loop-player
     if loop-player has scoreboard tag "PSOmenu":
       set {_menu} to chest inventory named "&8Prizecounter Security Menu"
       set slot 11 of {_menu} to yellow concrete named "&eSwitch South Security Door" with lore "&fOpen or Close the South security door of the office" and "" and "&e&lCLICK TO SWTICH"
       open {_menu} to loop-player
-      remove scoreboard tag "PSOmenu" from loop-player
+      remove "PSOmenu" from the scoreboard tags of player from loop-player
