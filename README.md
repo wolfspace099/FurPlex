@@ -30,7 +30,7 @@ Info
 ============================
 - These plugins only work in a world called "FurPlex", so please use MV to import our world.
 
-- You need the plugins listed in the list below under "What is it?" (for full download of all sources) & under Liberies (for the world download).
+- You need the plugins listed in the list below under "What is it?" (for full download of all sources) & under Libraries (for the world download).
 
 - You also need to get the resourcepack.
 
