@@ -39,7 +39,7 @@ on inventory click:
     if event-item is red concrete:
       close player's inventory
       if player has scoreboard tag "PSOL":
-        add "PSOL" to the scoreboard tags of player
+        remove "PSOL" from the scoreboard tags of player
         add "PSD1C" to the scoreboard tags of player
         add "PSD2C" to the scoreboard tags of player
         add "PSOLE" to the scoreboard tags of player
