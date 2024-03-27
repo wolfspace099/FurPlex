@@ -15,5 +15,6 @@ every 1 ticks:
       remove "PSOmenu" from the scoreboard tags from loop-player
 on inventory click:
   if name of event-inventory is "&8Prizecounter Security Menu":
+    cancel event
     if event-item is barrier:
       close player's inventory
