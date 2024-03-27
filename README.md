@@ -40,11 +40,11 @@ Here is a quick and short version of what the files do!
 
 - FurFunctions - Adds multiple functions using GUIs to the world
 
-- FurStore - Adds a System where u can withdraw and deposit your Tokens for the FurPlex! Also adds Staff Application and Passes!
+- FurATMs - Adds a System where u can withdraw and deposit your Tokens for the FurPlex! Also adds Staff Application and Passes!
 
 - FurCMDs - Adds Commands to control all the plugins & add small things for command blocks
 
-
+- FurStore - Adds multiple GUIs where you can sell & buy items of ours and other people that have a shop in the FurPlex!
 
 
 
