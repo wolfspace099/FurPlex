@@ -2,7 +2,7 @@ every 1 ticks:
   loop all players:
     if loop-player has scoreboard tag "cmenu":
       wait 5 ticks
-      remove "PSOmenu" from the scoreboard tags from loop-player
+      remove "PSOmenu" from the scoreboard tags of loop-player
     if loop-player has scoreboard tag "PSOmenu":
       set {_menu} to chest inventory named "&8Prizecounter Security Menu"
       set slot 11 of {_menu} to yellow concrete named "&eSwitch South Security Door" with lore "&fOpen or Close the South security door of the office" and "" and "&e&lCLICK TO SWTICH"
@@ -12,7 +12,7 @@ every 1 ticks:
       set slot 23 of {_menu} to red concrete named "&c&lLockdown" with lore "&fOnly in case of real emergencies!" and "&fNote this will turn of power to ensure" and "&fSecurity door health!" and "" and "&c&lCLICK TO LOCKDOWN"
       open {_menu} to loop-player
       wait 5 ticks
-      remove "PSOmenu" from the scoreboard tags from loop-player
+      remove "PSOmenu" from the scoreboard tags of loop-player
 on inventory click:
   if name of event-inventory is "&8Prizecounter Security Menu":
     cancel event
