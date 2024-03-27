@@ -28,11 +28,29 @@ Copyright 2023-2024 all rights reserved!
 
 Info
 ============================
+
+
+About
+-------------
+
 - These plugins only work in a world called "FurPlex", so please use MV to import our world.
 
 - You need the plugins listed in the list below under "What is it?" (for full download of all sources) & under Libraries (for the world download).
 
 - You also need to get the resourcepack.
+
+Libraries
+-------------
+
+These support Plugins are required to make our services fit and work best
+- MV Multiverse Core & MV Inv - To import our world file u require this plugin, since its set-up this way! MV Inv is to ensure these worlds are fused togther by inventory
+- Skript & Sk Addons - All files will be found under "Installation Guides/Plugins" 
+- Elevators - This is a special plugin that adds very simple elevators using Shift & Space on a block patern! We use this for Staff Elevators & Easter Eggs =-)
+
+Compatible with these Mechanic Plugins:
+- Essentials - We optimised all our cmds & plugins to work with this! JUST the normal installation is supported NONE OTHERS ARE TESTED
+
+Want to download the support plugins? Check out the file "Plugins" in our source
 
 What is it?
 ============================
