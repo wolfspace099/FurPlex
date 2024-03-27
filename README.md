@@ -46,6 +46,9 @@ Here is a quick and short version of what the files do!
 
 - FurStore - Adds multiple GUIs where you can sell & buy items of ours and other people that have a shop in the FurPlex!
 
+- FurProtocols - Add protocols, like Security Lockdowns, turn machines off when power is out ect.
+
+- FurStaff - Add staff options & control panel with all functions of the control room!
 
 
 
