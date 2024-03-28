@@ -1,10 +1,11 @@
 every 1 ticks:
   loop all players:
     if loop-player has scoreboard tag "cmenu":
+			set {_cm} to chest inventory with 4 rows named
       wait 5 ticks
       remove "PSOmenu" from the scoreboard tags of loop-player
     if loop-player has scoreboard tag "PSOmenu":
-      set {_menu} to chest inventory named "&cPrizecounter Security Menu"
+      set {_menu} to chest inventory with 3 rows named "&8Prizecounter Security Menu"
       set slot 11 of {_menu} to yellow concrete named "&eSwitch South Security Door" with lore "&fOpen or Close the South security door of the office" and "" and "&e&lCLICK TO SWTICH"
       set slot 13 of {_menu} to white concrete named "&fSwitch East Security Door" with lore "&fOpen or Close the South security door of the office" and "" and "&f&lCLICK TO SWITCH"
       set slot 15 of {_menu} to redstone lamp named "&cLamp Power" with lore "&fControl the lamp system of" and "&fthe Prizecounter security office" and "" and "&c&lCLICK TO SWITCH" 
@@ -42,9 +43,9 @@ on inventory click:
         remove "PSOL" from the scoreboard tags of player
         add "PSD1C" to the scoreboard tags of player
         add "PSD2C" to the scoreboard tags of player
-        add "PSOLE" to the scoreboard tags of player
+        add "PSOLD" to the scoreboard tags of player
       else:
         add "PSOL" to the scoreboard tags of player
         add "PSD1O" to the scoreboard tags of player
         add "PSD2O" to the scoreboard tags of player
-        add "PSOLD" to the scoreboard tags of player
+        add "PSOLE" to the scoreboard tags of player
