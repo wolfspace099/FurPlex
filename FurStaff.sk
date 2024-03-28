@@ -1,8 +1,10 @@
 every 1 ticks:
   loop all players:
     if loop-player has scoreboard tag "cmenu":
-			set {_cm} to chest inventory with 4 rows named
-      wait 5 ticks
+			set {_cm} to chest inventory with 4 rows named "&8Control Menu"
+			set slot 11 of {_cm} to iron block named "&cLockdowns" with lore "&fLockdown entrances & offices of the FurPlex" and "&for safety of security staff!" and "" and "&c&lCLICK TO VIEW" with all flags hidden
+   		
+			wait 5 ticks
       remove "PSOmenu" from the scoreboard tags of loop-player
     if loop-player has scoreboard tag "PSOmenu":
       set {_menu} to chest inventory with 3 rows named "&8Prizecounter Security Menu"
