@@ -3,7 +3,10 @@ every 1 ticks:
     if loop-player has scoreboard tag "cmenu":
 			set {_cm} to chest inventory with 4 rows named "&8Control Menu"
 			set slot 11 of {_cm} to iron block named "&cLockdowns" with lore "&fLockdown entrances & offices of the FurPlex" and "&for safety of security staff!" and "" and "&c&lCLICK TO VIEW" with all flags hidden
-   		
+   		set slot 12 of {_cm} to  
+			set slot 13 of {_cm} to redstone dust named "&cPower" with lore "&fControl the main power of" and "&fthe Staff & Visitor Areas" and "" and "&c&lCLICK TO VIEW"
+			set slot 14 of {_cm} to 
+			open {_cm} to loop-player
 			wait 5 ticks
       remove "PSOmenu" from the scoreboard tags of loop-player
     if loop-player has scoreboard tag "PSOmenu":
