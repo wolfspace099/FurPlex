@@ -3,11 +3,11 @@ every 1 ticks:
     if loop-player has scoreboard tag "cmenu":
 	set {_cm} to chest inventory with 4 rows named "&8Control Menu"
 	set slot 11 of {_cm} to iron block named "&cLockdowns" with lore "&fLockdown entrances & offices of the FurPlex" and "&for safety of security staff!" and "" and "&c&lCLICK TO VIEW" with all flags hidden
-   	set slot 12 of {_cm} to player head named "&cCams" with lore "&fCheck the FurPlex cams" and "&fof all areas" and "" and "&c&lCLICK TO VIEW" with nbt "{display:{Name:"{\"text\":\"Camera \"}"},SkullOwner:{Id:[I;-1113502024,843466295,-1803561648,-487382137],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDZkMTVlNzJhY2YyMTliYzFkYThhZTc2ODZmNGY4M2M3NzNhZGNiNGY4ZmFjYzg3Y2JiZDQzZWU3OTA1N2YzIn19fQ=="}]}}}"
+	set slot 12 of {_cm} to player head named "&cCams" with lore "&fCheck the FurPlex cams" and "&fof all areas" and "" and "&c&lCLICK TO VIEW" with nbt "{display:{Name:"{\"text\":\"Camera \"}"},SkullOwner:{Id:[I;-1113502024,843466295,-1803561648,-487382137],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDZkMTVlNzJhY2YyMTliYzFkYThhZTc2ODZmNGY4M2M3NzNhZGNiNGY4ZmFjYzg3Y2JiZDQzZWU3OTA1N2YzIn19fQ=="}]}}}"
 	set slot 13 of {_cm} to redstone dust named "&cPower" with lore "&fControl the main power of" and "&fthe Staff & Visitor Areas" and "" and "&c&lCLICK TO VIEW"
 	open {_cm} to loop-player
 	wait 5 ticks
-      remove "PSOmenu" from the scoreboard tags of loop-player
+	remove "PSOmenu" from the scoreboard tags of loop-player
     if loop-player has scoreboard tag "PSOmenu":
       set {_menu} to chest inventory with 3 rows named "&8Prizecounter Security Menu"
       set slot 11 of {_menu} to yellow concrete named "&eSwitch South Security Door" with lore "&fOpen or Close the South security door of the office" and "" and "&e&lCLICK TO SWTICH"
