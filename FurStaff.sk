@@ -37,11 +37,11 @@ on inventory click:
       close player's inventory
       if player has scoreboard tag "PSOL":
         remove "PSOL" from the scoreboard tags of player
-        add "PSD1C" to the scoreboard tags of player
-        add "PSD2C" to the scoreboard tags of player
+        add "PSD1O" to the scoreboard tags of player
+        add "PSD2O" to the scoreboard tags of player
         add "PSOLD" to the scoreboard tags of player
       else:
         add "PSOL" to the scoreboard tags of player
-        add "PSD1O" to the scoreboard tags of player
-        add "PSD2O" to the scoreboard tags of player
+        add "PSD1C" to the scoreboard tags of player
+        add "PSD2C" to the scoreboard tags of player
         add "PSOLE" to the scoreboard tags of player
