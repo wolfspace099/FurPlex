@@ -53,3 +53,7 @@ on inventory click:
         if event-item is pink concrete:
             add "A1-2" to the scoreboard tags of player
             add "A0-2" to the scoreboard tags of player
+        if event-item is redstone block:
+            add "A-R" to the scoreboard tags of player
+            wait 13 ticks
+            
