@@ -45,8 +45,11 @@ on inventory click:
     else if name of event-inventory is "{@sfont}&lAtrium Elevator A":
         cancel event
         if event-item is red concrete:
+            add "A1-0" to the scoreboard tags of player
+            add "A2-0" to the scoreboard tags of player
+        if event-item is light blue concrete:
             add "A2-1" to the scoreboard tags of player
             add "A0-1" to the scoreboard tags of player
-        if event-item is light blue concrete:
+        if event-item is pink concrete:
             add "A1-2" to the scoreboard tags of player
             add "A0-2" to the scoreboard tags of player
