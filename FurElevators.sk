@@ -56,4 +56,5 @@ on inventory click:
         if event-item is redstone block:
             add "A-R" to the scoreboard tags of player
             wait 13 ticks
+            make console execute command "tp %player% -1001 30 451"
             
