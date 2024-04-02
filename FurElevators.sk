@@ -59,7 +59,7 @@ on inventory click:
         if event-item is redstone block:
             close event-player's inventory
             add "A-R" to the scoreboard tags of player
-            wait 13 ticks
+            wait 15 ticks
             make console execute command "tp %player% -1001 30 451"
         if event-item is barrier:
             close event-player's inventory
