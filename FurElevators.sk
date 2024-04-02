@@ -1,1 +1,28 @@
-
+every 1 seconds:
+    loop all players:
+        if loop-player has scoreboard tag "elevator":
+            set {Elevinv} to chest inventory with 3 rows named "{@sfont}&lElevator"
+            set slot 11 of {Elevinv} to light blue concrete named "{@mfont}Entrance" with lore "&fWhere u enter the {@sfont}Mega Fur{@mfont}Plex&f!" and "" and "&fHere you have:" and "{@mfont}- Fur&Stuff" and "{@mfont}- Store Area" and "{@mfont}- Mega Lounge" and "{@mfont}- Exit" and "" and "{@mfont}&lGround Floor"
+            set slot 13 of {Elevinv} to pink concrete named "&dFur Plaza" with lore "&fFloor 1 of the Entrance Hall!" and "&fHere is located:" and "" and "{@sfont}- FurMusic Restaurant" and "&d- FurCandy Island" and "&d- Atrium Access" and "" and "&d&l1st Floor"
+            set slot 15 of {Elevinv} to gold block named "&6VIP & Prizecounter" with lore "&fPick up your price! Or go to &6VIP" with lore "&fThis area is where u can pickup" and "&fyour gained prices or items" and "&fHere you also have:" and "" and "&6- VIP Entrance" and "&6- Atrium Access" and "&6- Arcade Access" and "" and "&6&l2nd Floor"
+            set slot 22 of {Elevinv} to barrier named "&cClose"
+            open {Elevinv} to loop-player
+            remove "elevator" from the scoreboard tags of loop-playe
+on inventory click:
+    if name of event-inventory is "{@sfont}&lElevator":
+        cancel event
+        if event-item is barrier named "&cClose":
+            close event-player's inventory
+        if event-item is light blue concrete:
+            close event-player's inventory
+            add "elevatorgroundfrom2ndfloor" to the scoreboard tags of player
+            add "elevator3rdfromgroundopposite" to the scoreboard tags of player
+        if event-item is pink concrete:
+            close event-player's inventory
+            add "elevatorsecondfloorfromfirst" to the scoreboard tags of player
+            add "elevator3rdfrom2ndopposite" to the scoreboard tags of player
+        if event-item is gold block:
+            close event-player's inventory
+            add "elevator3rdfromground" to the scoreboard tags of player
+            add "elevator3rdfrom2nd" to the scoreboard tags of player
+    else if name of event-inventory is "{@sfont}&lElevator":
