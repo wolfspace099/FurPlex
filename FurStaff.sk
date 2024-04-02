@@ -1,3 +1,9 @@
+options:
+    furprefix: &d[Fur<##33A8FF>Plex]&f
+    mfont: <##33A8FF>
+    sfont: &d
+    tfont: &f
+
 every 1 ticks:
   loop all players:
     if loop-player has scoreboard tag "PSOmenu":
