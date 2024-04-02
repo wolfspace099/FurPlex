@@ -17,7 +17,7 @@ every 1 seconds:
         if loop-player has scoreboard tag "A-Elevator-A":
             set {AelevA} to chest inventory with 3 rows named "{@sfont}&lAtrium Elevator A"
             set slot 11 of {AelevA} to red concrete named "&c&lMain Floor" with lore "&fThe place where we have" and "all the Fursona attractions & shops!" and "&fHere you have:" and "&c- Main Stage" and "&c- Furrblast" and "&c- Superstar Kid's-cade" and "&c- Fur&Race" and "" and "&c&lMain Floor"
-            set slot 13 of {AelevA} to light blue concrete named "{@mfont}Fur Plaza" with lore "&fThe main entrance of the Atrium" and "&ffrom the Lobby Entrance" and "&fHere is located:" and "" and "{@mfont}- SuperFurr Daycare" and "{@mfont}- FurCake Shoppy" and "{@mfont}- Lobby Entrance" and "" and "{@mfont}&l1st Floor"
+            set slot 13 of {AelevA} to light blue concrete named "{@mfont}Fur Plaza" with lore "&fThe main entrance of the Atrium" and "&ffrom the Lobby Entrance" and "&fHere is located:" and "" and "{@mfont}- SuperFurr Daycare" and "{@mfont}- EclipsCake Shoppe" and "{@mfont}- Lobby Entrance" and "" and "{@mfont}&l1st Floor"
             set slot 15 of {AelevA} to pink concrete named "&d&lFur Entertainment" with lore "&fPlay games, enjoy music & more!" with lore "&fThese parts of the Furplex" and "&fare located here:" and "" and "&d- FurCade" and "&d- Fur&Bowling" and "&d- Prizecounter" and "&d- Superfurcade" and "&d- Furrycise" and "" and "&d&l2nd Floor"
             set slot 22 of {AelevA} to barrier named "&cClose"
             if loop-player has scoreboard tag "STAFFX":
