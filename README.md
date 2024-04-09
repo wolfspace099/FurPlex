@@ -68,5 +68,5 @@ Here is a quick and short version of what the files do!
 
 - FurStaffs - Add staff options & control panel with all functions of the control room!
 
-
+- FurElevators - GUIs for the Elevators in the FurPlex
 
