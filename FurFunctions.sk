@@ -82,7 +82,7 @@ on inventory click:
             close event-player's inventory
             open {DJinv} to event-player
 on right click:
-    if name of event-item is "&6Fanta":
+    if name of event-item is "&6Furenta":
         if {drink.%event-item%.%player%} is 5:
             remove 1 of event-item from player
             set {drink.%event-item%.%player%} to 0
@@ -96,7 +96,7 @@ on right click:
         apply regeneration 1 to player for 3 seconds
         apply night vision 1 to player for 5 seconds
         wait 5 seconds
-    if name of event-item is "&cCoca Cola":
+    if name of event-item is "&dFur Purr":
         if {drink.%event-item%.%player%} is 5:
             remove 1 of event-item from player
             set {drink.%event-item%.%player%} to 0
