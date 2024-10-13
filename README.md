@@ -18,7 +18,7 @@ The world is still a W.I.P. and it will be uploaded when it's done.
 Resource Pack
 -------------
 Put the link from RESOURCEPACK.txt in your server.properties
-If you have any other resourcepack you want to keep on your server, you can dm @oranquil on discord to merge them.
+If you have any other resourcepack you want to keep on your server, you can dm @quilieofc on discord to merge them.
 
 Legal Stuff
 ============================
