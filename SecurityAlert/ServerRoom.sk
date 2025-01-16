@@ -1,0 +1,56 @@
+options:
+    prefix: "[&cSR&f]"
+
+command /sr [<text>] [<text>] [<text>]:
+    aliases: sr
+    permission: op
+    trigger:
+        if arg-1 is "add":
+            if {srdatabase.%arg-2%} contains location:
+                send "%{@prefix}% Updated the id %arg-2%'s location! ✔"
+                set {srdatabase.%arg-2%} to player's location
+            else:
+                send "%{@prefix}% Added %arg-2% to &dS&9R&f! ✔" to player
+                add arg-2 to {srlist::*}
+                set {srdatabase.%arg-2%} to player's location
+        else if arg-1 is "rm":
+            if {srdatabase.%arg-2%} contains location:
+                clear {srdatabase.%arg-2%}
+                send "%{@prefix}% Server has been &9deleted!&f ✔"
+                remove arg-2 from {srlist::*}
+            else:
+                send "%{@prefix}% Server is not valid!"
+        else if arg-1 is "tp":
+            if {srdatabase.%arg-2%} contains location:
+                teleport player to {srdatabase.%arg-2%}
+                send "%{@prefix}% Teleported you to Server %arg-2%! ✔"
+            else:
+                send "%{@prefix}% This Server is not &9valid!"
+        else if arg-1 is "list":
+            if arg-2 is "add":
+                add arg-3 to {srlist::*}
+                send "%{@prefix}% Added %arg-3% to the list"
+            if arg-2 is "remove":
+                remove arg-3 from {srlist::*}
+                send "%{@prefix}% Removed %arg-3% from the list"
+            else:
+                send "%{@prefix}% These server's are currently active at &dS&9R&f: %{srlist::*}%" to sender
+        else if arg-1 is "cc":
+            send "&f--- [&cCC&f] ---"
+            send "&bQRace - Light Blue"
+            send "&3RRow - Cyan"
+            send "&dAtrium - Pink"
+            send "&5CCB/Stage Elevator - Purple"
+            send "&fElevators - White"
+            send "&cEntrance - Red"
+            send "&aEl Bronco - Light Green"
+            send "&2Bronkie Golf - Green"
+            send "&6Underground/Sewers/Backstage - Orange"
+            send "&ePrizecounter & VIP - Yellow"
+            send "&8Undefined - Black"
+            send "---=-------=---"
+
+on tab complete of "/sr":
+    set tab completions for position 1 to "add" and "rm" and "tp" and "list" and "cc"
+on tab complete of "/sr":
+    set tab completions for position 1 to "add" and "rm" and "tp" and "list" and "cc"

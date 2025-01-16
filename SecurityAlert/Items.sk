@@ -1,0 +1,50 @@
+on load:
+    set {furtoken} to paper named "&dFur&bToken" with lore "&fMain credit of the &dMega Fur&bPlex&f! U can use this to buy and sell!"
+    set {vippass} to paper named "&l&6VIP Pass" with lore "&6VIP Access &fto the whole FurPlex!"
+    set {famouspass} to paper named "&l&bFamous Pass" with lore "&bFamous Access &fto the whole FurPlex!"
+    
+on right click:
+    if name of event-item is "&6Furenta":
+        if {drink.%event-item%.%player%} is 5:
+            remove 1 of event-item from player
+            set {drink.%event-item%.%player%} to 0
+        add 1 to {drink.%event-item%.%player%}
+        cancel event
+        loop 360 times:
+            set {_pl} to location of player
+            set {_v} to spherical vector with radius 2, yaw loop-value-1 and pitch 0
+            make 0 of dust using dustTransition(orange, orange, 1.4) at location 0.2 meter above {_pl} ~ {_v} with offset vector(0, 0, 0) with extra 0
+        apply speed 1 to player for 5 seconds
+        apply regeneration 1 to player for 3 seconds
+        apply night vision 1 to player for 5 seconds
+        wait 5 seconds
+    if name of event-item is "&dFur Purr":
+        if {drink.%event-item%.%player%} is 5:
+            remove 1 of event-item from player
+            set {drink.%event-item%.%player%} to 0
+        add 1 to {drink.%event-item%.%player%}
+        cancel event
+        loop 360 times:
+            set {_pl} to location of player
+            set {_v} to spherical vector with radius 2, yaw loop-value-1 and pitch 0
+            make 0 of dust using dustTransition(light purple, light purple, 1.4) at location 0.2 meter above {_pl} ~ {_v} with offset vector(0, 0, 0) with extra 0
+        apply speed 1 to player for 3 seconds
+        apply regeneration 2 to player for 3 seconds 
+        apply night vision 1 to player for 5 seconds
+        apply strength 1 to player for 3 seconds
+        wait 5 seconds
+    if name of event-item is "&aReturn to lobby":
+        cancel event
+        make player execute command "lobby"
+        wait 5 seconds
+		    
+    if name of event-item is "&aAtrium":
+        cancel event
+        make player execute command "atrium"
+        wait 5 seconds
+        
+    if name of event-item is "&aSpawn":
+        cancel event
+        make player execute command "spawn"
+        wait 5 seconds
+		    

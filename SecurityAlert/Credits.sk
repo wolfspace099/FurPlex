@@ -1,0 +1,37 @@
+command /resetccc:
+	trigger:
+		loop all players:
+			if loop-player has scoreboard tag "credits":
+				set {ccc.%loop-player's uuid%} to 0
+command /ccc:
+	trigger:
+		loop all players:
+			if loop-player has scoreboard tag "credits":
+				if {ccc.%loop-player's uuid%} = 0:
+					wait 3 seconds
+					add "c0" to loop-player's scoreboard tags
+				if {ccc.%loop-player's uuid%} = 1:
+					wait 15 seconds
+					add "c1" to loop-player's scoreboard tags
+				if {ccc.%loop-player's uuid%} = 2:
+					wait 15 seconds
+					add "c2" to loop-player's scoreboard tags
+				if {ccc.%loop-player's uuid%} = 3:
+					wait 15 seconds
+					add "c3" to loop-player's scoreboard tags
+				if {ccc.%loop-player's uuid%} = 4:
+					if loop-player has scoreboard tag "freddy":
+						add "cf" to loop-player's scoreboard tags
+					if loop-player has scoreboard tag "burn":
+						add "cb" to loop-player's scoreboard tags
+					else:
+						wait 10 seconds
+						set {ccc.%player's uuid%} to 0
+						add "cr" to loop-player's scoreboard tags
+				if {ccc.%loop-player's uuid%} = 5:
+					if loop-player has scoreboard tag "freddy":
+						wait 10 seconds
+						add "cfr" to loop-player's scoreboard tags
+				add 1 to {ccc.%loop-player's uuid%}
+on join:
+	set {ccc.%player's uuid%} to 0      

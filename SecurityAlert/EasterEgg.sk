@@ -1,0 +1,15 @@
+command /openkeypad:
+    trigger:
+        set {keypadopen.%player%} to true
+        send "&bType the secret code in chat"
+
+on chat:
+    if {keypadopen.%player%} is true:
+        cancel event
+        if message is "2014":
+            add "fnaf1ee" to scoreboard tags of player  
+            send "&aCorrect code!" to player
+            delete {keypadopen.%player%}  
+        else:
+            send "&cIncorrect code! Please try again." to player
+            set {keypadopen.%player%} to false

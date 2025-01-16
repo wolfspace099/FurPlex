@@ -1,0 +1,43 @@
+                                                                                                                                       
+#  ______                                                         ______                                                         ______ 
+# /_____/   ______   ______   ______   ______   ______   ______  /_____/   ______   ______   ______   ______   ______   ______  /_____/ 
+# /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/ 
+#                                                                                                                                       
+#                                                                                                                                       
+#                       ___________           ________    _________._.         ____    _______       ____                               
+#                       \_   _____/_ _________\_____  \  /   _____/| |  ___  _/_   |   \   _  \     /_   |                              
+#                        |    __/|  |  \_  __ \/   |   \ \_____  \ | |  \  \/ /|   |   /  /_\  \     |   |                              
+#                        |     \ |  |  /|  | \/    |    \/        \ \|   \   / |   |   \  \_/   \    |   |                              
+#                        \___  / |____/ |__|  \_______  /_______  / __    \_/  |___| /\ \_____  / /\ |___|                              
+#                            \/                       \/        \/  \/               \/       \/  \/                                    
+#                                                                                                                                       
+#  ______                                                         ______                                                         ______ 
+# /_____/   ______   ______   ______   ______   ______   ______  /_____/   ______   ______   ______   ______   ______   ______  /_____/ 
+# /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/ 
+
+options:
+    taskbarcolor: black stained glass pane named "   "
+
+every 1 seconds:
+    loop all players:
+        if loop-player has scoreboard tag "bootOS":
+            set {inv} to chest inventory with 6 rows named "&dFur&bOS"
+            set slot 0 of {inv} to jukebox named "&dFur&bify"
+            set slot 9 of {inv} to repeater named "&dSafety &bDoors"
+            set slot 18 of {inv} to compass named "&bSplit&dgate"
+            set slot 27 of {inv} to redstone lamp named "&dGen&bFur"
+            set slot 1 of {inv} to lectern named "&dStage &bControl"
+            set slot 10 of {inv} to redstone torch named "&dSettings"
+            set slot 19 of {inv} to smooth stone slab named "&dFur&bElevator"
+            set slot 28 of {inv} to paper named "&dSecur&bSet"
+            set slot 2 of {inv} to minecart with chest named "&dIB &bLauncher"
+            set slot 11 of {inv} to book and quill named "&dCredits"
+            set slot 45 of {inv} to light blue concrete named " "
+            set {_taskbar} to 46
+            loop 6 times:
+                set slot {_taskbar} of {inv} to {@taskbarcolor}
+                add 1 to {_taskbar}
+            set slot 52 of {inv} to clock named "&d%now%"
+            set slot 53 of {inv} to empty map named "&dFur&bMail"
+            open {inv} to loop-player
+            remove "bootOS" from the scoreboard tags of loop-player

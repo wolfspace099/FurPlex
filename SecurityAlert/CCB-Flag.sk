@@ -1,0 +1,21 @@
+every 1 second:
+    loop all players:
+        if loop-player has scoreboard tag "ccb-flag-1":
+            remove "ccb-flag-1" from loop-player's scoreboard tags
+            if loop-player has scoreboard tag "PINK":
+                displayCaptureTime(loop-player, "pink")
+            if loop-player has scoreboard tag "BLUE":
+                displayCaptureTime(loop-player, "blue")
+
+function displayCaptureTime(p: player, c: String):
+    set {_progress} to 0
+    loop 10 times:
+        if {_c} is "blue":
+            set {_bar} to boss bar with id "ctf-ccb-blue" with title "&b&lCapturing the Flag!" with color blue
+        if {_c} is "pink":
+            set {_bar} to boss bar with id "ctf-ccb-pink" with title "&d&lCapturing the Flag!" with color pink
+        set bar progress of {_bar} to {_progress}
+        add {_p} to {_bar}
+        wait 1 second
+        add 10 to {_progress}
+    remove {_p} from {_bar}

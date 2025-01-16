@@ -1,0 +1,81 @@
+every 1 second:
+    loop all players:
+        if loop-player has scoreboard tag "ccb-startvote":
+            set {teamsccb} to 1
+            set {ffaccb} to 1
+            set {ctfccb} to 1
+            set {ccbvote} to chest inventory with 3 rows named "&7Vote now!"
+            set slot 12 of {ccbvote} to pink wool named "&dTeams" with lore "&7Try to get as many kills as possible with your team!" with all flags hidden
+            set slot 13 of {ccbvote} to purple wool named "&5Capture the Flag!" with lore "&7Play and capture all the flags with your team!" with all flags hidden
+            set slot 14 of {ccbvote} to diamond sword named "&9FFA" with lore "&7Try to kill as many as you can..." with all flags hidden
+            remove "ccb-startvote" from the scoreboard tags of loop-player
+            open {ccbvote} to loop-player
+            set {ccbtimeleft.%loop-player%} to 10
+            loop 10 times:
+                remove 1 from {ccbtimeleft.%loop-player%}
+                set slot 22 of loop-player's current inventory to clock named "&7Vote ends in %{ccbtimeleft.%loop-player%}% secs!"
+                wait 1 seconds
+            close loop-player's inventory
+            if {teamsccb} is 1:
+                if {ffaccb} is 1:
+                    if {ctfccb} is 1:
+                        make console execute command "tag @e[tag=ccb-tags] add ccb-normal"
+                        send "&f[&5CCB&f] The gamemode &5&lTEAMS &fis selected! Good luck..." to loop-player
+            if {teamsccb} > {ffaccb}:
+                make console execute command "tag @e[tag=ccb-tags] add ccb-normal"
+                send "&f[&5CCB&f] The gamemode &5&lTEAMS &fis selected! Good luck..." to loop-player
+            else if {ctfccb} > {ffaccb}:
+                send "&f[&5CCB&f] The gamemode &5&lCAPTURE THE FLAG &fis selected! Good luck..." to loop-player
+            else:
+                send "&f[&5CCB&f] The gamemode &5&lFFA &fis selected! Good luck. .." to loop-player
+            make console execute command "tag @e[tag=ccb-tags] add ccb-startcount"
+on inventory click:
+    if event-item is pink wool named "&dTeams":
+        cancel event
+        add 1 to {teamsccb}
+        close player's inventory
+    if event-item is purple wool named "&5Capture the Flag!":
+        cancel event
+        add 1 to {ctfccb}
+        close player's inventory
+    if event-item is diamond sword named "&9FFA":
+        cancel event
+        add 1 to {ffaccb}
+        close player's inventory
+    if event-item is clock:
+        cancel event
+command /ufopink:
+    permission: op
+    trigger:
+        loop 360 times:
+            set {_loc} to location at (-1007.5, 22, 698.5) in world "world" parsed as world
+            set {_v} to spherical vector with radius 1, yaw loop-value-1 and pitch 0
+            make 0 of dust using dustTransition(pink, pink, 1.4) at {_loc} ~ {_v} with offset vector(0, 0, 0) with extra 0
+command /ufoblue:
+    permission: op
+    trigger:
+        loop 360 times:
+            set {_loc} to location at (-1028.5, 22, 660.5) in world "world" parsed as world
+            set {_v} to spherical vector with radius 1, yaw loop-value-1 and pitch 0
+            make 0 of dust using dustTransition(light blue, light blue, 1.4) at location 0.2 meter above {_loc} ~ {_v} with offset vector(0, 0, 0) with extra 0
+
+every 1 second:
+    loop all players:
+        if loop-player has scoreboard tag "ccb-resetstats":
+            set {killsb} to 0
+            set {deathsb} to 0
+            set {killsp} to 0
+            set {deathsp} to 0
+            remove "ccb-resetstats" from scoreboard tags of loop-player
+        if loop-player has scoreboard tag "ccb-blue":
+            send action bar "&7⚔ &9%{killsb}%  &7|  &7☠ &9%{deathsb}%" to loop-player
+        else if loop-player has scoreboard tag "ccb-pink":
+            send action bar "&7⚔ &d%{killsp}%  &7|  &7☠ &d%{deathsp}%" to loop-player
+on death:
+    if victim is player:
+        if victim has scoreboard tag "ccb-blue":
+            add 1 to {killsp}
+            add 1 to {deathsb}
+        else if victim has scoreboard tag "ccb-pink":
+            add 1 to {killsb}
+            add 1 to {deathsp}

@@ -1,0 +1,43 @@
+options:
+    prefix: &6&lWarps &7&l»&f
+
+# Permissions
+    warp_permission: warps.use.%arg-1% # Only use this if "{warp::permission}" is true
+    warp_create: warps.create # Permission for creating warps
+    warp_delete: warps.delete # Permission for deleting warps
+    warp_gui: warps.gui # Allow /warps command.
+    warp_use: warp.use # Permission for /warp command
+
+on skript load:
+    set {warp::permission.use} to false # Set this to true if you want players to have a permission to use a specific warp
+
+command /createwarp <string>:
+    permission: op
+    trigger:
+        if arg-1 is set:
+            if {warps::%arg-1%} is not set:
+                set {warps::%arg-1%} to location of player
+                send "{@prefix}&a Successfully created %arg-1% warp."
+            else if {warps::%arg-1%} is set:
+                send "{@prefix}&c This warp already exists!"
+        if arg-1 is not set:
+            send "{@prefix} &cUsage: /createwarp <warp>"
+
+command /warp <string>:
+    trigger:
+        if {warps::%arg-1%} is set:
+            teleport player to {warps::%arg-1%}
+        if {warps::%arg-1%} is not set:
+            send "{@prefix} &cThis warp does not exist!"
+
+command /delwarp <string>:
+    permission: op
+    trigger: 
+        if arg-1 is set:
+            if {warps::%arg-1%} is set:
+                delete {warps::%arg-1%}
+                send "{@prefix} &aSuccessfully deleted warp %arg-1%"
+            else if {warps::%arg-1%} is not set:
+                send "{@prefix} &cThis warp does not exist!"
+        if arg-1 is not set:
+            send "{@prefix} &cUsage: /delwarp <warp>"

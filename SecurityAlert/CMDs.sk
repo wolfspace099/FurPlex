@@ -1,0 +1,243 @@
+on load:
+    load yaml "plugins/SecurityAlert/config.yml" as "config"
+    set {prefix} to yml value "customization.message-prefix" from "config"
+    
+    
+command /credits:
+    permission: op
+    trigger:
+        add "credits" to the scoreboard tags of player
+
+command /lp:
+    trigger:
+        send "lag prevention command"
+        
+command /bronko:
+    permission: op
+    trigger:
+        make player execute command "tp @s bronkie11"
+        
+Command /fly:
+    permission: furplex.fly
+    trigger:
+        if {fly.%player%} is not set:
+            send "&bFlight mode is now &3enabled&b." to player
+            set player's flight mode to true
+            Set {fly.%player%} to true
+            stop
+        send "&bFlight mode is now &3disabled&b." to player
+        set player's flight mode to false
+        delete {fly.%player%}
+        stop
+        
+command /furplex [<text>] [<text>] [<integer>]:
+    permission: furplex.admincmds
+    trigger:
+        if arg-1 is not set:
+            send "&cUse '/furplex <option>'" to player
+        else if arg-2 is set:    
+            if arg-1 is "config":  
+                if arg-2 is "reload":
+                    load yaml "plugins/FurPlex/config.yml" as "config"
+                    broadcast "%{prefix}% &fReloaded config.yml successfully!"    
+        else if arg-1 is "tp":
+            make player execute command "warp Furplex"
+        else if arg-1 is "slvl":
+            if arg-2 is "set":
+                broadcast "%arg-3%"
+        else if arg-1 is "music":
+            add "FURSPEAKERCONTROL" to the scoreboard tags of player
+        else if arg-1 is "elevators":
+            add "elevators" to the scoreboard tags of player
+        else if arg-1 is "redeemdiamonds":
+            add "DEPOTDIA" to the scoreboard tags of player
+                
+            
+command /plugins:
+    permission: op
+    trigger:
+        send "&7- &aFurPlex&f, &aViaVersion&f, &aViaBackwards&f, &aViaRewind&f, &aMultiverse-core&f, &aMultiverse-Inventories&f, &aVault&f, &aWorldedit&f, &aKeepChunks&f, &aVault&f, &aFloodgate&f, &aGSit&f, &aGeyser&f, &aCCTV&f, &aCMIlib&f, &aElevator&f, &aCitizens&f, &aProtocolLib" to player
+      
+command /gmc:
+    permission: op
+    trigger:
+        set the player's gamemode to creative
+        
+command /gms:
+    permission: op
+    trigger:
+        set the player's gamemode to survival
+        
+command /gmsp:
+    permission: op
+    trigger:
+        set the player's gamemode to spectator
+        
+command /gma:
+    permission: op
+    trigger:
+        set the player's gamemode to adventure
+        
+command /or:
+    permission: op
+    trigger:
+        loop all players:
+            add "or" to the scoreboard tags of loop-player
+        Send "&aRoof has been opened!" to player
+       
+command /cr:
+    permission: op
+    trigger:
+        loop all players:
+            add "cr" to the scoreboard tags of loop-player
+        Send "&aRoof has been closed!" to player
+command /os:
+    permission: op
+    trigger:
+        add "openstairs" to the scoreboard tags of player
+
+command /furstore:
+    trigger:
+        add "FURPLEX" to the scoreboard tags of player
+
+command /staffapps [<text>]:
+    permission: op
+    trigger:
+        if arg-1 is "open":
+            set {staffr} to "&aOpen!"
+        else if arg-1 is "close":
+            set {staffr} to "&cClosed"
+        else:
+            send "&cThat command does not exist! Please check the syntax"
+            
+command /pass [<text>]:
+    permission: op
+    trigger:
+        if arg-1 is "VIP":
+            give 1 of {vippass} to player
+        else if arg-1 is "Famous":
+            give 1 of {famouspass} to player
+        else:
+            send "&cThat command does not exist! Please check the syntax"
+            
+command /spawn:
+    description: Teleport to the spawn point.
+    usage: /spawn
+    trigger:
+        if {spawn} is set:
+            teleport player to {spawn}
+        else:
+            send "&cSpawn is not set, please contact a server administrator to use &e/setspawn&c." to player
+
+command /setspawn:
+    permission message: {@noPermissionMessage}
+    description: Set the spawn point.
+    usage: /setspawn
+    trigger:
+        set {spawn} to location of player
+        
+command /screwdriver:
+    permission: op
+    trigger:
+        add "screwdrivergive" to scoreboard tags of player
+        
+every 1 seconds:
+		heal all players
+		set food level of all players to 20
+		stop
+            
+on tab complete of "/pass":
+    set tab completions for position 1 to "Famous" and "VIP"
+
+on tab complete of "/staffapps":
+    set tab completions for position 1 to "open" and "close"  
+    
+on tab complete for "/furplex":
+    set tab completions of position 1 to "tp" and "config" and "slvl" and "music" and "elevators" and "redeemdiamonds"
+    set tab completion of position 2 to "reload" and "set"
+    
+    
+command /atrium:
+    description: Teleport to the atrium.
+    usage: /atrium
+    trigger:
+        teleport player to {atrium}
+        
+command /setatrium:
+    usage: /setatrium
+    trigger:
+        set {atrium} to location of player
+        
+command /rrow:
+    description: Teleport to rrow.
+    usage: /rrow
+    trigger:
+        teleport player to {rrow}
+        
+command /setrrow:
+    usage: /setrrow
+    trigger:
+        set {rrow} to location of player
+        
+command /lobby:
+    description: Teleport to lobby.
+    usage: /lobby
+    trigger:
+        teleport player to {lobby}
+        
+command /setlobby:
+    usage: /setlobby
+    trigger:
+        set {lobby} to location of player
+        
+command /setqrace:
+    usage: /setqrace
+    trigger:
+        set {qrace} to location of player
+
+command /qrace:
+    description: Teleport to qrace.
+    usage: /qrace
+    trigger:
+        teleport player to {qrace}
+
+command /setelbro:
+    usage: /setelbro
+    trigger:
+        set {elbro} to location of player
+
+command /elbro:
+    description: Teleport to elbro.
+    usage: /elbro
+    trigger:
+        teleport player to {elbro}
+		
+command /inventory [<text>]:
+    permission: furplex.admincmds
+    trigger:
+        if arg-1 is not set:
+            send "&cUse '/books on/off'" to player
+        else if arg-1 is "on":
+            remove "nothanks" from scoreboard tags of player
+        else if arg-1 is "off":
+            add "nothanks" to scoreboard tags of player
+            
+on tab complete for "/inventory":
+    set tab completions of position 1 to "on" and "off"
+        
+command /startccbcountdown:
+    trigger:
+        wait 3 minutes
+        make console execute command "tag @e[tag=ccb-tags] add ccb-end"
+command /seed:
+	trigger:
+		chance of 20%: 
+			make console execute command "execute as @e[tag=ccb-tags] run clone -1001 81 714 -935 75 652 -1069 21 657"
+		chance of 20%: 
+			make console execute command "execute as @e[tag=ccb-tags] run clone -1001 73 714 -935 67 652 -1069 21 657"
+		chance of 20%: 
+			make console execute command "execute as @e[tag=ccb-tags] run clone -1001 65 714 -935 59 652 -1069 21 657"
+		chance of 20%: 
+			make console execute command "execute as @e[tag=ccb-tags] run clone -1001 57 714 -935 51 652 -1069 21 657"
+		chance of 20%: 
+			make console execute command "execute as @e[tag=ccb-tags] run clone -1001 49 714 -935 43 652 -1069 21 657"

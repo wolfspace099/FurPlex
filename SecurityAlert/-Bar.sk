@@ -1,0 +1,157 @@
+#Define the options
+options:
+    ip: "play.securityalertmc.net"
+
+#Clear when joining and leaving!
+on join:
+    clear player's scoreboard
+
+on disconnect:
+    clear player's scoreboard
+
+#Run animation and functions every ... and get values for the board
+every 10 seconds:
+    loop all players:
+        animatedBoard(loop-player)
+
+every 1 seconds:
+    loop all players:
+        getSLvl(loop-player)
+        getLocationLevel(loop-player)
+
+every 15 seconds:
+    loop all players:
+        bottomInfo(loop-player)
+
+on death of player:
+    add 1 to {deaths::%victim's uuid%}
+
+every 10 ticks:
+    loop all players:
+        statsBoard(loop-player)
+        wait 10 ticks
+
+#Command to control the Bar
+command /bar [<text>]:
+    trigger:
+        if arg-1 is "toggle":
+            if {show_info::%player's uuid%} is not set:
+                set {show_info::%player's uuid%} to true
+                toggle player's scoreboard to on
+                send "&f[&cSecurityAlert] &fBar is enabled! ✔" to player
+            else:
+                delete {show_info::%player's uuid%}
+                toggle player's scoreboard to off
+                send "&f[&cSecurityAlert] &fBar is disabled! ✔" to player
+        else if arg-1 is "clear":
+            clear player's scoreboard
+        else if arg-1 is "reload":
+            if sender is op:
+                make console execute command "reload"
+
+on tab complete of "/bar":
+    set tab completions for position 1 to "toggle" and "clear"
+
+#Functions that run the board and the animations
+function statsBoard(p: player):
+    set line 12 of {_p}'s board to ""
+    set line 11 of {_p}'s board to "&fSlvl: &d&l%{rank::%{_p}'s uuid%}%"
+    set line 10 of {_p}'s board to ""
+    set line 9 of {_p}'s board to "Players: &9%size of all players%/%max players%"
+    set line 8 of {_p}'s board to "&fDeaths: &d%{deaths::%{_p}'s uuid%}%"
+    set line 7 of {_p}'s board to ""
+    set line 6 of {_p}'s board to "&fHi, &d%{_p}%!&f Welcome to the &cSecurity Alert&f!"
+    set line 5 of {_p}'s board to ""
+    set line 4 of {_p}'s board to "&fLocation: &d%{location::%{_p}'s uuid%}%"
+    set line 3 of {_p}'s board to "&fLevel:&r &d%{level::%{_p}'s uuid%}%"
+    set line 2 of {_p}'s board to ""
+    
+function bottomInfo(p: player):
+    set line 1 of {_p}'s board to "&f%{@ip}%"
+    wait 5 seconds
+    set line 1 of {_p}'s board to "&d&fUse '/bar toggle' to disable the Bar&f!"
+    wait 5 seconds
+    set line 1 of {_p}'s board to "&d&f&fComplementry Unbound &9Shaders &frecommended!"
+
+function getSLvl(p: player):
+    set {_i} to 10
+    loop 9 times:
+        if {_p} has scoreboard tag "slvl%{_i}%":
+            set {rank::%{_p}'s uuid%} to {_i}
+            exit
+        remove 1 from {_i}
+        wait 5 ticks
+    set {rank::%{_p}'s uuid%} to 0
+
+function getLocationLevel(p: player):
+    if "%team of {_p}%" = "Team[ATRIUM]":
+        set {location::%{_p}'s uuid%} to "Atrium"
+        set {level::%{_p}'s uuid%} to "0-2"
+    else if "%team of {_p}%" = "Team[Raceway]":
+        set {location::%{_p}'s uuid%} to "Quillie Raceway"
+        set {level::%{_p}'s uuid%} to "1"
+    else if "%team of {_p}%" = "Team[prizecounter]":
+        set {location::%{_p}'s uuid%} to "Prize Counter"
+        set {level::%{_p}'s uuid%} to "2"
+    else if "%team of {_p}%" = "Team[entrance]":
+        set {location::%{_p}'s uuid%} to "Entrance"
+        set {level::%{_p}'s uuid%} to "1"
+    else if "%team of {_p}%" = "Team[garage]":
+        set {location::%{_p}'s uuid%} to "Garage"
+        set {level::%{_p}'s uuid%} to "-1"
+    else if "%team of {_p}%" = "Team[rockstarrow]":
+        set {location::%{_p}'s uuid%} to "Rockstar Row"
+        set {level::%{_p}'s uuid%} to "0"
+    else if "%team of {_p}%" = "Team[ccb]":
+        set {location::%{_p}'s uuid%} to "CCB"
+        set {level::%{_p}'s uuid%} to "0"
+    else if "%team of {_p}%" = "Team[brgolf]":
+        set {location::%{_p}'s uuid%} to "Bronkie Golf"
+        set {level::%{_p}'s uuid%} to "1"
+    else if "%team of {_p}%" = "Team[daycare]":
+        set {location::%{_p}'s uuid%} to "Kid's Care"
+        set {level::%{_p}'s uuid%} to "1"
+    else if "%team of {_p}%" = "Team[partsnservice]":
+        set {location::%{_p}'s uuid%} to "Parts & Service"
+        set {level::%{_p}'s uuid%} to "-2"
+    else if "%team of {_p}%" = "Team[amusic]":
+        set {location::%{_p}'s uuid%} to "DJ Booth"
+        set {level::%{_p}'s uuid%} to "2"
+    else if "%team of {_p}%" = "Team[acontrol]":
+        set {location::%{_p}'s uuid%} to "Atrium Control"
+        set {level::%{_p}'s uuid%} to "1"
+    else if "%team of {_p}%" = "Team[lobby]":
+        set {location::%{_p}'s uuid%} to "Lobby"
+        set {level::%{_p}'s uuid%} to "-"
+
+function animatedBoard(p: player):
+    set title of {_p}'s board to "&d&lSECURITY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&f&lSECURITY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lSECURITY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&d&lS&9&lECURITY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lS&d&lECU&9&lRITY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lSECUR&d&lITY&9&l ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lSECUR&d&lIT&9&lY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lSEC&d&lUR&9&lITY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lSECU&d&lRIT&9&lY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lSECURIT&d&lY &9&lALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lSECURITY &d&lAL&9&lERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lSECURITY AL&d&lERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&9&lSECURITY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&f&lSECURITY ALERT"
+    wait 15 ticks
+    set title of {_p}'s board to "&d&lSECURITY ALERT"
+    wait 5 seconds
