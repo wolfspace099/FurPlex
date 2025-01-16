@@ -1,0 +1,85 @@
+on load:
+    SecurityAlert(console)
+
+function SecurityAlert(s: sender):
+    wait 3 seconds
+    send "  _________                          .__  __            _____  .__                 __   " to {_s}
+    send " /   _____/ ____   ____  __ _________|__|/  |_ ___.__. /  _  \ |  |   ____________/  |_ " to {_s}
+    send " \_____  \_/ __ \_/ ___\|  |  \_  __ \  \   __<   |  |/  /_\  \|  | _/ __ \_  __ \   __\" to {_s}
+    send " /        \  ___/\  \___|  |  /|  | \/  ||  |  \___  /    |    \  |_\  ___/|  | \/|  |  " to {_s}
+    send "/_______  /\___  >\___  >____/ |__|  |__||__|  / ____\____|__  /____/\___  >__|   |__|  " to {_s}
+    send "                               Made by SC with <3" to {_s}
+    send "[SecurityAlert] Booting up compiler..." to {_s}
+    wait 1 seconds
+    send "[SecurityAlert] No update was detected, launching..." to {_s}
+    wait 1 seconds
+    send "[SecurityAlert] Configuring all teams..." to {_s}
+    FurTeams()
+    send "[SecurityAlert] Successfully loaded all teams" to {_s}
+    wait 1 seconds
+    send "[SecurityAlert] Loading config.yml..." to {_s}
+    send "[SecurityAlert] Loaded loader config.yml!" to {_s}
+    send "[SecurityAlert] ----------===-----------" to {_s}
+    send "[SecurityAlert] Detecting scripts, please wait..." to {_s}
+    wait 2 seconds
+    send "[SecurityAlert] Enabling scripts with loader..." to {_s}
+    execute {_s} command "sk reload ../../SecurityAlert/scripts/"
+    wait 3 seconds
+    send "[SecurityAlert] Loaded all scripts" to {_s}
+    wait 1 seconds
+    send "[SecurityAlert] Loader completed OK!" to {_s}
+    send "[SecurityAlert] If any error occurs while enabling, please vision the error and correct it!" to {_s}
+
+function Stop(sr: string):
+    wait 1 second
+    send "   ___  _          __   __       " to console
+    send "  / _ \(_)__ ___ _/ /  / /__ ____" to console
+    send " / // / (_-</ _ `/ _ \/ / -_) __/" to console
+    send "/____/_/___/\_,_/_.__/_/\__/_/   " to console
+    send "later betch" to console
+    send "[SecurityAlert] Server %{_sr}% in 5" to console
+    set {cd} to 4
+    loop 4 times:
+        send "[SecurityAlert] Server %{_sr}% in %{cd}%" to console
+        remove 1 from {cd}
+        wait 1 second
+    send "[SecurityAlert] Server %{_sr}%!" to console
+    wait 1 second
+    if {_sr} is "Stopping":
+        make console execute command "minecraft:stop"
+    else:
+        make console execute command "spigot:restart"                                      
+
+function FurTeams():
+	make console execute command "team add ATRIUM"
+	make console execute command "team add Raceway"
+	make console execute command "team add prizecounter"
+	make console execute command "team add entrance"
+	make console execute command "team add garage"
+	make console execute command "team add rockstarrow"
+	make console execute command "team add server"
+	make console execute command "team add agen"
+	make console execute command "team add ccb"
+	make console execute command "team add brgolf"
+	make console execute command "team add daycare"
+	make console execute command "team add partsnservice"
+	make console execute command "team add amusic"
+	make console execute command "team add acontrol"
+	make console execute command "team add broom"
+	make console execute command "team add lobby"
+	make console execute command "tag @e add runTEAM"
+
+command /reload:
+    permission: op
+    trigger:
+        SecurityAlert(sender)
+
+command /stop:
+    permission: op
+    trigger:
+        Stop("Stopping")
+
+command /restart:
+    permission: op
+    trigger:
+        Stop("Restarting")
